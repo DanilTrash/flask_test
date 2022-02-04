@@ -13,17 +13,17 @@ def index_page():
 
 @app.route('/start')
 def start():
+    print(request.args)
     if request.args.get('gid') in PandasData('687502802')('gid').dropna().tolist():
-        print(request.args)
-        return {'status': 'stopped'}
+        return {'status': 'started'}
     else:
         return {'status': 'ERROR'}
 
 
 @app.route('/stop')
 def stop():
+    print(request.args)
     if request.args.get('gid') in PandasData('687502802')('gid').dropna().tolist():
-        print(request.args)
         return {'status': 'stopped'}
     else:
         return {'status': 'ERROR'}
@@ -32,4 +32,4 @@ def stop():
 if __name__ == '__main__':
     hostname = socket.gethostname()
     host = socket.gethostbyname(hostname)
-    app.run(host='192.168.140.222', debug=True, use_debugger=False, use_reloader=True)
+    app.run(host=host, debug=True, use_debugger=False, use_reloader=True)
