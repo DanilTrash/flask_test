@@ -33,4 +33,4 @@ if __name__ == '__main__':
     hostname = socket.gethostname()
     host = socket.gethostbyname(hostname)
     db = PandasData('687502802')
-    app.run(host=host, debug=True, use_debugger=False, use_reloader=True)
+    app.run(host='192.168.140.222', debug=True, use_debugger=False, use_reloader=True)
