@@ -3,6 +3,7 @@ from flask import Flask, jsonify, request, redirect, url_for
 import socket
 from database import PandasData
 
+app = Flask(__name__)
 
 
 @app.route('/')
@@ -31,6 +32,5 @@ def stop():
 if __name__ == '__main__':
     hostname = socket.gethostname()
     host = socket.gethostbyname(hostname)
-    app = Flask(__name__)
     db = PandasData('687502802')
     app.run(host=host, debug=True, use_debugger=False, use_reloader=True)
